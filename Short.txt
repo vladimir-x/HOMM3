@@ -1,0 +1,23 @@
+Heroes 3
+При попытке зайти в сетевую игру по протоколу TCP/IP вываливается сообщение об ошибке.
+______________________________________________
+DirectPlay Error:
+
+'Unknown error?'
+
+File 'C:\Dev\Heroes 3 Exp 2\Game\Remote.cpp'
+Line#1867
+______________________________________________
+
+Причина: компонент DirectPlayLobby не зарегитрирован в системе Windows7
+Решение - зарегистрировать dplayx.dll:
+
+1) удалить dplayx.dll из windows\system32\
+2) закинуть в C:\Windows\SysWOW64  dplayx.dll(если нету) и dplay.inf
+3) произвести установку из dplay.inf (контекстное меню -> установить)
+4) зарегистрировать библитеку dplayx.dll 
+(cmd от администратора -> C:\Windows\SysWOW64\regsvr32.exe dplayx.dll)
+!! бибилитека x86 регистрируется из C:\Windows\SysWOW64\regsvr32.exe !!
+!! C:\Windows\system32\regsvr32.exe  регистрирует x64 библиотеки!!
+
+более подробно см. Full.txt
